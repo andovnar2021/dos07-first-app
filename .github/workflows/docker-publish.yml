@@ -18,16 +18,14 @@ jobs:
      - name: 'Checkout'
        uses: actions/checkout@main
        
-     - name: 'echo'
-       run: echo " ${{ github.CI_RUN_NUMBER }}
 
      - name: 'docker login'
        run: docker login -u  $DOCKER_USER -p $DOCKER_PASSWORD
 
 
      - name: "Build"
-       run: docker build -t $DOCKER_USER/$IMAGE_NAME:1 .
+       run: docker build -t $DOCKER_USER/$IMAGE_NAME:1.0 .
             
        
      - name: "Push"
-       run: docker push $DOCKER_USER/$IMAGE_NAME:1
+       run: docker push $DOCKER_USER/$IMAGE_NAME:1.0
