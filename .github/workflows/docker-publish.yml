@@ -1,0 +1,33 @@
+name: CI/CD - DOS07
+
+env:
+  IMAGE_NAME: "my_py_app"
+  DOCKER_USER: ${{secrets.DOCKER_USER}}
+  DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  DOS:
+    name: running platform
+    runs-on: ubuntu-latest
+    
+    steps:
+     - name: 'Checkout'
+       uses: actions/checkout@main
+       
+     - name: 'echo'
+       run: echo " ${{ github.CI_RUN_NUMBER }}
+
+     - name: 'docker login'
+       run: docker login -u  $DOCKER_USER -p $DOCKER_PASSWORD
+
+
+     - name: "Build"
+       run: docker build -t $DOCKER_USER/$IMAGE_NAME:1 .
+            
+       
+     - name: "Push"
+       run: docker push $DOCKER_USER/$IMAGE_NAME:1
