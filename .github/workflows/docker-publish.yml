@@ -19,7 +19,7 @@ jobs:
        uses: actions/checkout@main
        
      - name: 'echo'
-       run: echo " $CI_RUN_NUMBER" 
+       run: echo " ${{ github.CI_RUN_NUMBER }}
 
      - name: 'docker login'
        run: docker login -u  $DOCKER_USER -p $DOCKER_PASSWORD
