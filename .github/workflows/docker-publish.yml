@@ -12,8 +12,8 @@ on:
     branches:
       - main
 jobs:
-  DOS:
-    name: running platform
+  CI:
+    name: CI
     runs-on: ubuntu-latest
     
     steps:
@@ -31,3 +31,15 @@ jobs:
        
      - name: "Push"
        run: docker push $DOCKER_USER/$IMAGE_NAME:1.0
+  CD:
+    name: CD
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.HOST}}
+        username: ${{ env.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: whoami
