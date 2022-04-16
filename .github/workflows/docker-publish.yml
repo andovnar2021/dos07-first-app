@@ -4,6 +4,8 @@ env:
   IMAGE_NAME: "my_py_app"
   DOCKER_USER: ${{secrets.DOCKER_USER}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+  AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY_ID}}   
 
 on:
   push:
