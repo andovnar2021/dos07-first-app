@@ -1,0 +1,8 @@
+ImmutableMultiDict([('phrase', 'verfgtr3bea'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36|{'a', 'e'}
+ImmutableMultiDict([('phrase', 'verfgtr3beavfdvwq'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36|{'a', 'e'}
+ImmutableMultiDict([('phrase', 'verfgtr3beavfdvwqooo'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36|{'a', 'e', 'o'}
+ImmutableMultiDict([('phrase', 'verfgtr3beavfdvwqooo'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36|{'e', 'o', 'a'}
+ImmutableMultiDict([('phrase', 'verfgtr3beavfdvwqooo'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36|{'e', 'o', 'a'}
+ImmutableMultiDict([('phrase', 'verfgtr3beavfdvwqooo'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36|{'e', 'o', 'a'}
+ImmutableMultiDict([('phrase', 'yulia'), ('letters', 'y')])|127.0.0.1|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36|{'y'}
+ImmutableMultiDict([('phrase', 'hello'), ('letters', 'll')])|127.0.0.1|Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36|{'l'}
