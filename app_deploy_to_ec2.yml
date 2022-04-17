@@ -8,7 +8,7 @@
    - { role: dock_compose, when ansible_system == "Linux"}
 
   tasks:
-
+  always:
   - name: pull an image
     docker_image:
      name: 11051988/my_py_app:1.1
