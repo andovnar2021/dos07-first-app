@@ -1,0 +1,2 @@
+[all]
+appserver ansible_host=18.195.101.221 ansible_user=ubuntu
