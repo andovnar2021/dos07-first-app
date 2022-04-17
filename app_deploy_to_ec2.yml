@@ -7,5 +7,5 @@
   tasks:
 
   - name: Ping my servers
-    shell: echo "Hello world"
+    shell: echo "Hello world!"
     
