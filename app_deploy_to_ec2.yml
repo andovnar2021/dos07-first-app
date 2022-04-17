@@ -10,10 +10,13 @@
   tasks:
 
   - name: pull an image
-    docker_image:
-     name: 11051988/my_py_app:latest
-     source: pull
-    when: true
+    shell: docker pull 11051988/my_py_app:latest
+
+     
+    # docker_image:
+    #  name: 11051988/my_py_app:latest
+    #  source: pull
+    # when: true
 
   - name: Create and start a data container
     docker_container:
