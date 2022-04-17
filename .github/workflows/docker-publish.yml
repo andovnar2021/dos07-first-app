@@ -42,10 +42,11 @@ jobs:
       uses: actions/checkout@main
 
     - name: executing remote ssh commands using password
-      uses: dawidd6/action-ansible-playbook@v2
+      uses: dawidd6/action-ansible-playbook@v2.5.0
       with:
-        playbook: ${{ env.PLAYBOOK}}
-        #directory: .
+        #playbook: ${{ env.PLAYBOOK}}
+        playbook: app_deploy_to_ec2.yml
+        directory: /.
         key: ${{ env.AWS_EC2_KEY }}
         inventory: |
            [all]
