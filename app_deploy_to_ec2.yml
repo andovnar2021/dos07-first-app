@@ -4,8 +4,8 @@
   become: yes
   gather_facts: false
   
-  roles:
-   - { role: dock_compose, when ansible_system == "Linux"}
+#   roles:
+#    - { role: dock_compose, when ansible_system == "Linux"}
 
   tasks:
 
@@ -13,11 +13,13 @@
     docker_image:
      name: 11051988/my_py_app:latest
      source: pull
+    when: true
 
   - name: Create and start a data container
     docker_container:
      name: flassk-app2
      image: 11051988/my_py_app:latest
-     state: present
+     state: started
+     restart: yes
      ports:
           - "5000:5000"
