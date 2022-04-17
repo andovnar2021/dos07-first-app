@@ -6,6 +6,6 @@
   become_user: ubuntu
   tasks:
 
- # - name: Ping my servers
+  - name: Ping my servers
     shell: echo "Hello world"
     
