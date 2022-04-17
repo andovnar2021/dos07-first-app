@@ -29,12 +29,11 @@ jobs:
 
 
      - name: "Build"
-       run: docker build -t $DOCKER_USER/$IMAGE_NAME:1.1 .
+       run: docker build -t $DOCKER_USER/$IMAGE_NAME:latest .
             
        
      - name: "Push"
-       run: docker push $DOCKER_USER/$IMAGE_NAME:1.1
-
+       run: docker push $DOCKER_USER/$IMAGE_NAME:latest
      - name: "ansible --version"
        run: ansible --version
   CD:
