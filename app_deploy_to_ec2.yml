@@ -1,0 +1,11 @@
+---
+- name: Test connection to my servers
+  hosts: all
+  become: yes
+ # become_method: su
+  become_user: ubuntu
+  tasks:
+
+ # - name: Ping my servers
+    shell: echo "Hello world"
+    

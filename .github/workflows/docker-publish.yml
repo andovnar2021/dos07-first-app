@@ -6,7 +6,8 @@ env:
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
   AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY_ID}}
   AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY_ID}}   
-
+  PLAYBOOK: "app_deploy_to_ec2.yml"
+  AWS_EC2_KEY: ${{secrets.AWS_EC2_KEY}}   
 on:
   push:
     branches:
@@ -36,10 +37,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
+      uses: dawidd6/action-ansible-playbook@v2
       with:
-        host: ${{ env.HOST}}
-        username: ${{ env.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: whoami
+        playbook: ${{ env.PLAYBOOK}}
+        directory: ./
+        key: ${{ env.AWS_EC2_KEY }}
+        inventory: |
+          [all]
+          appserver ansible_host=18.195.101.221 ansible_user=ubuntu 
+        #ansible_ssh_private_key_file=$AWS_EC2_KEY
+        # port: ${{ secrets.PORT }}
+        # script: whoami
+
+
+    # name: CD
+    # runs-on: ubuntu-latest
+    # steps:
+    # - name: executing remote ssh commands using password
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ env.HOST}}
+    #     username: ${{ env.USERNAME }}
+    #     password: ${{ secrets.PASSWORD }}
+    #     port: ${{ secrets.PORT }}
+    #     script: whoami
