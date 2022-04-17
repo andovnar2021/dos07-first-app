@@ -45,7 +45,7 @@ jobs:
       uses: actions/checkout@main
 
     - name: RUN ansible
-      run: ansible-playbook  ${{ env.PLAYBOOK }} -i hosts --private-key ${{ env.AWS_EC2_KEY }}
+      run: ansible-playbook  ${{ env.PLAYBOOK }} -i hosts 
       
       
       
