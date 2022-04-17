@@ -45,7 +45,7 @@ jobs:
       uses: dawidd6/action-ansible-playbook@v2
       with:
         playbook: ${{ env.PLAYBOOK}}
-        directory: ./
+        #directory: .
         key: ${{ env.AWS_EC2_KEY }}
         inventory: |
            [all]
