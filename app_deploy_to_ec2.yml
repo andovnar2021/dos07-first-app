@@ -6,3 +6,12 @@
   
   roles:
    - { role: dock_compose, when ansible_system == "Linux"}
+
+
+
+
+  tasks:
+  - name: pull an image
+    docker_image:
+     name: 11051988/my_py_app
+     source: pull
