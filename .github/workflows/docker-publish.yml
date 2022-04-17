@@ -8,6 +8,8 @@ env:
   AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY_ID }}   
   PLAYBOOK: "app_deploy_to_ec2.yml"
   AWS_EC2_KEY: ${{ secrets.AWS_EC2_KEY }}   
+  LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+
 on:
   push:
     branches:
@@ -45,9 +47,8 @@ jobs:
       uses: actions/checkout@main
 
     - name: Decrypt Pem
-      run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/secrets/my_private_key.pem my_private_key.pem.gpg
-      env:
-      LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}  
+      run: gpg --quiet --batch --yes --decrypt --passphrase=${{ env.LARGE_SECRET_PASSPHRASE }} --output aws_test.pem aws_test.pem.gpg
+  
 
     - name: RUN ansible
       run: ansible-playbook  ${{ env.PLAYBOOK }} -i hosts --private-key aws_test.pem
