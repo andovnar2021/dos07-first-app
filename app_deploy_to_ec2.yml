@@ -1,22 +1,8 @@
-# ---
-# - name: Test connection to my servers
-#   hosts: all
-#   become: yes
-#   become_user: ubuntu
-  
-
-#   roles:
-#      - role: docker_install
-
-
 ---
 - name: Test connection to my servers
   hosts: all
   become: yes
- # become_method: su
-  become_user: ubuntu
-  tasks:
-
-  - name: Ping my servers
-    shell: echo "Hello world"
-    
+  gather_facts: false
+  
+  roles:
+   - { role: dock_compose, when ansible_system == "Linux"}
