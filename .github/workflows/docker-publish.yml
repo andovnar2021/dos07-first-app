@@ -68,7 +68,7 @@ jobs:
          [all]
          appserver ansible_host=18.195.101.221 ansible_user=ubuntu 
      
-        options: |
-          -- verbose
+        # options: |
+        #   -- verbose
 
    # ansible_ssh_private_key=${{ env.AWS_EC2_KEY }}
