@@ -46,11 +46,10 @@ jobs:
       with:
         playbook: ${{ env.PLAYBOOK}}
         directory: ./
-        key: ${{ env.AWS_EC2_KEY }}
+       # key: ${{ env.AWS_EC2_KEY }}
         inventory: |
           [all]
-          appserver ansible_host=18.195.101.221 ansible_user=ubuntu 
-        #ansible_ssh_private_key_file=$AWS_EC2_KEY
+          appserver ansible_host=18.195.101.221 ansible_user=ubuntu ansible_ssh_private_key_file=${{ env.AWS_EC2_KEY }}
         # port: ${{ secrets.PORT }}
         # script: whoami
 
