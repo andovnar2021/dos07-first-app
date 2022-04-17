@@ -44,31 +44,31 @@ jobs:
     - name: 'Checkout'
       uses: actions/checkout@main
 
-    # - name: RUN ansible
-    #   run: ansible-playbook -i hosts ${{ env.PLAYBOOK }} 
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
     - name: RUN ansible
-      uses: dawidd6/action-ansible-playbook@v2
-      with:
-        playbook: ${{ env.PLAYBOOK }}
-        #playbook: app_deploy_to_ec2.yml
-        #directory: /.
-        key: ${{ env.AWS_EC2_KEY }}
-        inventory: |
-         [all]
-         appserver ansible_host=18.195.101.221 ansible_user=ubuntu ansible_ssh_private_key=${{ env.AWS_EC2_KEY }}
+      run: ansible-playbook -i hosts ${{ env.PLAYBOOK }}  --private-key ${{ env.AWS_EC2_KEY }}
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    # - name: RUN ansible
+    #   uses: dawidd6/action-ansible-playbook@v2
+    #   with:
+    #     playbook: ${{ env.PLAYBOOK }}
+    #     #playbook: app_deploy_to_ec2.yml
+    #     #directory: /.
+    #     key: ${{ env.AWS_EC2_KEY }}
+    #     inventory: |
+    #      [all]
+    #      appserver ansible_host=18.195.101.221 ansible_user=ubuntu ansible_ssh_private_key=${{ env.AWS_EC2_KEY }}
      
-        options: |
-          -- inventory hosts
+    #     options: |
+    #       -- inventory hosts
 
    # ansible_ssh_private_key=${{ env.AWS_EC2_KEY }}
