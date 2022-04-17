@@ -11,13 +11,13 @@
 
   - name: pull an image
     docker_image:
-     name: 11051988/my_py_app:1.0
+     name: 11051988/my_py_app:1.1
      source: pull
 
   - name: Create and start a data container
     docker_container:
-     name: flassk-app
-     image: 11051988/my_py_app:1.0
+     name: flassk-app2
+     image: 11051988/my_py_app:1.1
      state: started
      ports:
           - "5000:5000"
