@@ -53,11 +53,11 @@ jobs:
       run: chmod 400 aws_test.pem
   
 
-    - name: RUN ansible
-      run: cat  aws_test.pem.gpg
+    - name: Cat file
+      run: cat  aws_test.pem
 
-    # - name: RUN ansible
-    #   run: ansible-playbook  ${{ env.PLAYBOOK }} -i hosts --private-key aws_test.pem
+    - name: RUN ansible
+      run: ansible-playbook  ${{ env.PLAYBOOK }} -i hosts --private-key aws_test.pem
       
       
       
