@@ -1,7 +1,12 @@
-FROM python:3-alpine
-WORKDIR /usr/src/app
-EXPOSE 5000
-COPY requirements.txt .
-RUN pip install -qr requirements.txt
-COPY . /
-CMD ["python3", "./myapp.py"]
+FROM python:3.8-slim-buster
+
+WORKDIR /python-docker
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+COPY . .
+
+ENTRYPOINT [ "python3" ]
+
+CMD ["myapp.py" ]

@@ -31,7 +31,7 @@ def do_search() -> str:
 @app.route('/')
 def entry_page() -> 'html':
  return render_template('entry.html',
- the_title='Welcome to search4letters on the web!')
+ the_title='DOS-07 my first flask app!')
  
 @app.route('/viewlog')
 def view_the_log() -> 'html':
@@ -62,4 +62,4 @@ def view_the_log() -> 'html':
 #   return escape(contents)
 
 if __name__ == '__main__':
- app.run(debug=True)
+ app.run(debug=True, host='0.0.0.0')

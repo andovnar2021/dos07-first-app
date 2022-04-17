@@ -7,11 +7,17 @@
   roles:
    - { role: dock_compose, when ansible_system == "Linux"}
 
-
-
-
   tasks:
+
   - name: pull an image
     docker_image:
-     name: 11051988/my_py_app
+     name: 11051988/my_py_app:1.0
      source: pull
+
+  - name: Create and start a data container
+    docker_container:
+     name: flassk-app
+     image: 11051988/my_py_app:1.0
+     state: started
+     ports:
+          - "5000:5000"
