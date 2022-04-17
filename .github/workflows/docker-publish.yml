@@ -42,12 +42,12 @@ jobs:
       uses: actions/checkout@main
 
     - name: executing remote ssh commands using password
-      uses: dawidd6/action-ansible-playbook@v2.5.0
+      uses: dawidd6/action-ansible-playbook@v2
       with:
         #playbook: ${{ env.PLAYBOOK}}
         playbook: app_deploy_to_ec2.yml
         directory: /.
-        #key: ${{ env.AWS_EC2_KEY }}
+        key: ${{ env.AWS_EC2_KEY }}
         inventory: |
            [all]
            appserver ansible_host=18.195.101.221 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=${{ env.AWS_EC2_KEY }}
