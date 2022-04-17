@@ -44,8 +44,13 @@ jobs:
     - name: 'Checkout'
       uses: actions/checkout@main
 
+    - name: Decrypt Pem
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" --output $HOME/secrets/my_private_key.pem my_private_key.pem.gpg
+      env:
+      LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}  
+
     - name: RUN ansible
-      run: ansible-playbook  ${{ env.PLAYBOOK }} -i hosts 
+      run: ansible-playbook  ${{ env.PLAYBOOK }} -i hosts --private-key aws_test.pem
       
       
       
