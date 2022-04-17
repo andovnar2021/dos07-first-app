@@ -47,7 +47,12 @@ jobs:
         playbook: ${{ env.PLAYBOOK}}
         directory: ./
         key: ${{ env.AWS_EC2_KEY }}
-        inventory: hosts
+        inventory: |
+           [all]
+           appserver ansible_host=18.195.101.221 ansible_user=ubuntu
+        known_hosts: .known_hosts
+        options: |
+          --inventory .hosts
 
         # |
         #   [all]
