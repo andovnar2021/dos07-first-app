@@ -24,6 +24,9 @@ jobs:
        uses: actions/checkout@main
        
 
+     - name: 'Testing by pytest'
+       run:  pytest mytest.py
+
      - name: 'docker login'
        run: docker login -u  $DOCKER_USER -p $DOCKER_PASSWORD
 
