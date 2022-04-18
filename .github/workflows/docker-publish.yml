@@ -24,6 +24,9 @@ jobs:
        uses: actions/checkout@main
        
 
+     - name: 'Instal pytest'
+       run:  pip install pytest
+
      - name: 'Testing by pytest'
        run:  pytest mytest.py
 
