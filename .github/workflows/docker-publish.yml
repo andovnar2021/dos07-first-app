@@ -42,7 +42,7 @@ jobs:
     #    run: docker push $DOCKER_USER/$IMAGE_NAME:latest
 
      - name: 'docker git login'
-       run:  echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+       run:  echo $CR_PAT | docker login ghcr.io -u andovnar2021 --password-stdin
 
 
      - name: "Build"
