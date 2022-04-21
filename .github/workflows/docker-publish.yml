@@ -45,11 +45,11 @@ jobs:
 
 
      - name: "Build"
-       run: docker build . --tag ghcr.io/andovnar2021/$IMAGE_NAME:latest .
+       run: docker build . --tag ghcr.io/andovnar2021/$IMAGE_NAME:latest 
             
        
      - name: "Push"
-       run: docker push ghcr.io/andovnar2021/$IMAGE_NAME:latest .
+       run: docker push ghcr.io/andovnar2021/$IMAGE_NAME:latest 
        
      - name: "ansible --version"
        run: ansible --version
