@@ -40,8 +40,9 @@ jobs:
        
     #  - name: "Push"
     #    run: docker push $DOCKER_USER/$IMAGE_NAME:latest
-    #  - name: 'docker git login'
-    #    run: docker login -u  $DOCKER_USER -p $DOCKER_PASSWORD
+
+     - name: 'docker git login'
+       run:  echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
 
 
      - name: "Build"
