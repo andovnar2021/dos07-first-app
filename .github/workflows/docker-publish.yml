@@ -42,15 +42,15 @@ jobs:
     #    run: docker push $DOCKER_USER/$IMAGE_NAME:latest
 
      - name: 'docker git login'
-       run:  echo $CR_PAT | docker login ghcr.io -u andovnar2021 --password-stdin
+       run: docker login ghcr.io -u andovnar2021 --password ${{ secrets.MY_TOKEN_IMAGE_TO_GIT }}
 
 
      - name: "Build"
-       run: docker build . --tag ghcr.io/andovnar2021/$IMAGE_NAME:latest 
+       run: docker build . --tag ghcr.io/andovnar2021/dos07-first-app/$IMAGE_NAME:latest 
             
        
      - name: "Push"
-       run: docker push ghcr.io/andovnar2021/$IMAGE_NAME:latest 
+       run: docker push ghcr.io/andovnar2021/dos07-first-app/$IMAGE_NAME:latest 
        
      - name: "ansible --version"
        run: ansible --version
